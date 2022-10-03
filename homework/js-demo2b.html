@@ -34,6 +34,7 @@
   <p>My Second paragraph.</p>
 
   <table>
+
    
     <!--<caption></caption>
     <thead>
@@ -71,7 +72,6 @@
         </tr>
     </tfoot>-->
     </table>
-    <p> CLick button to load the table</p>
     <input type = "button" id = "btn" value = "Load Data" style="margin-top:20px;" />
 </main>
 
@@ -79,28 +79,42 @@
 
 </div>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $("#btn").click(function(event){
     
             //Add a div element within the table
             $('table').append('<caption></caption>');
+            $('table').append('<tr id="showheading"></tr>');
+            $('table').append('<tr id="showcalories"></tr>');
+            $('table').append('<tr id="showfat"></tr>');
+            $('table').append('<tr id="showven"></tr>');
+            
 
             //Add  tr elements to table
-            $('#showheading').append('<tr></tr>');
-            $('#showcalories').append('<tr></tr>');
-            $('#showfat').append('<tr></tr>');
+            $('#showcaption').append('<p></p>')
+            $('#showheading').append('<tr><th>' + '</th>'+ '<th>' + '</th>' + '<th>' + '</th>' + '<th>' + '</th>' + '<th>'  +'</th></tr>');
+            $('#showcalories').append('<tr><td>' + '</td>'+ '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td></tr>');
+            $('#showfat').append('<tr><td>' + '</td>'+ '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td></tr>');
+            $('#showven').append('<tr><td>' + '</td>'+ '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td></tr>');
+
 
             // Losd data from json file into each <tr>
-                $.getJSON('data.json', function(jqdata){
-                    $('#showheading tr').append('HEADING: '+ jqdata.heading);
-                    $('#showheading tr:first-child').append('HEAD1: ' + jqdata.head1);
-                    
+                $.getJSON('data.json', function(jqdata) {
+                    $('#showcaption p').append('TITLE: '+ jqdata.title);
+                    $('#showheading row:first-child').append( jqdata.heading);
+                    $('#showheading td').append('HEAD1: ' + jqdata.head1);
+
                 })
           
             //Add tr
         })
     });
 </script>
+<style>
+    table {
+      margin-top: 35px;   
+    }
+</style>
 
 </body>
 </html>

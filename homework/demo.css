@@ -120,9 +120,9 @@ header {
     color:rgb(211, 218, 240);
     clear: both; /*Use this if using float on the main #album li rule*/
   } 
-  #showheading {
-    background-color: #eee;
-  }
+  /*#showheading {
+    text-transform: bold;
+  }*/
   .table {
      margin-top: 35px;
   }

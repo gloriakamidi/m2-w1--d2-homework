@@ -83,15 +83,15 @@
         $("#btn").click(function(event){
     
             //Add a div element within the table
-            $('table').append('<caption></caption>');
-            $('table').append('<tr id="showheading"></tr>');
+            $('table').append('<caption>Calories Comparison of Popular Burgers</caption>');
+            $('table').append('<tr id="showheading">Type</tr>');
             $('table').append('<tr id="showcalories"></tr>');
             $('table').append('<tr id="showfat"></tr>');
             $('table').append('<tr id="showven"></tr>');
             
 
             //Add  tr elements to table
-            $('#showcaption').append('<p></p>')
+            //$('#showcaption').append('<h2></h2>')
             $('#showheading').append('<tr><th>' + '</th>'+ '<th>' + '</th>' + '<th>' + '</th>' + '<th>' + '</th>' + '<th>'  +'</th></tr>');
             $('#showcalories').append('<tr><td>' + '</td>'+ '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td></tr>');
             $('#showfat').append('<tr><td>' + '</td>'+ '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td>' + '<td>' + '</td></tr>');
@@ -100,9 +100,42 @@
 
             // Losd data from json file into each <tr>
                 $.getJSON('data.json', function(jqdata) {
-                    $('#showcaption p').append('TITLE: '+ jqdata.title);
-                    $('#showheading row:first-child').append( jqdata.heading);
-                    $('#showheading td').append('HEAD1: ' + jqdata.head1);
+                   //$('#showcaption p').append('TITLE: '+ jqdata.title);
+                    $('#showheading th:first-child').append(' ' + jqdata.heading);
+                    $('#showheading th:nth-child(2)').append(' ' + jqdata.head1);
+                    $('#showheading th:nth-child(3)').append(' ' + jqdata.head2);
+                    $('#showheading th:nth-child(4)').append(' ' + jqdata.head3);
+                    $('#showheading th:nth-child(5)').append(' ' + jqdata.head4);
+                    // For Calories
+                    $('#showcalories td:first-child').append(' ' + jqdata.subheadcal);
+                    $('#showcalories  td:nth-child(2)').append(' ' + jqdata.cal1);
+                    $('#showcalories  td:nth-child(3)').append(' ' + jqdata.cal2);
+                    $('#showcalories  td:nth-child(4)').append(' ' + jqdata.cal3);
+                    $('#showcalories  td:nth-child(5)').append(' ' + jqdata.cal4);
+                    // For fat
+                    $('#showfat  td:first-child').append(' ' + jqdata.subheadfat);
+                    $('#showfat  td:nth-child(2)').append(' ' + jqdata.fat1);
+                    $('#showfat  td:nth-child(3)').append(' ' + jqdata.fat2);
+                    $('#showfat  td:nth-child(4)').append(' ' + jqdata.fat3);
+                    $('#showfat  td:nth-child(5)').append(' ' + jqdata.fat4);
+                    // For Vendors
+                    $('#showven  td:first-child').append(' ' + jqdata.subheadven);
+                    $('#showven  td:nth-child(2)').append(' ' + jqdata.ven1);
+                    $('#showven  td:nth-child(3)').append(' ' + jqdata.ven2);
+                    $('#showven  td:nth-child(4)').append(' ' + jqdata.ven3);
+                    $('#showven  td:nth-child(5)').append(' ' + jqdata.ven4);
+                    
+                    
+
+                    
+
+
+                  
+
+                    
+                    
+
+                    
 
                 })
           
@@ -114,6 +147,14 @@
     table {
       margin-top: 35px;   
     }
+    table, caption, th, td {
+    border: 1px solid #000;
+  }
+  th, td {
+    width: 150px;
+    height: 35px;
+    text-align: center;
+  }
 </style>
 
 </body>
